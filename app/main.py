@@ -1,3 +1,6 @@
+from typing import Union
+
+
 class Car:
     def __init__(self, comfort_class: int, clean_mark: int, brand: str) -> None:
         self.comfort_class = comfort_class
@@ -19,7 +22,7 @@ class CarWashStation:
         self.average_rating = average_rating
         self.count_of_ratings = count_of_ratings
 
-    def serve_cars(self, cars: list[Car]):
+    def serve_cars(self, cars: list[Car]) -> Union[int, float]:
         income = 0
         for car in cars:
             if self.wash_single_car(car):
@@ -36,7 +39,7 @@ class CarWashStation:
         )
         return costs
 
-    def wash_single_car(self, car: Car):
+    def wash_single_car(self, car: Car) -> bool:
         if self.clean_power > car.clean_mark:
             car.clean_mark_before_washing = car.clean_mark
             car.clean_mark = self.clean_power
