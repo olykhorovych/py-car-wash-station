@@ -1,5 +1,6 @@
 from typing import Union
 
+
 class Car:
     def __init__(
             self,
